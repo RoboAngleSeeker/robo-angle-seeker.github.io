@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Precision Angle Seeking in Robots</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="./static/css/academicons.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<section class="hero">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title">Precision Angle Seeking in Robots: A Reinforcement Learning Approach in Simulation and Reality</h1>
+                    <!-- <h3 class="title is-4 conference-authors"><a target="_blank" href="https://www.corl2023.org/">CoRL 2023, Atlanta, Georgia, USA</a></h3> -->
+                    <!-- <div class="is-size-5 publication-authors">
+                        <span class="author-block">
+                          <a target="_blank" href="https://utkarshmishra04.github.io/">Utkarsh A. Mishra</a>,
+                        </span>
+                        <span class="author-block">
+                          <a target="_blank" href="https://xsj01.github.io/">Shangjie Xue</a>,
+                        </span>
+                        <span class="author-block">
+                          <a target="_blank" href="https://yongxin.ae.gatech.edu/">Yongxin Chen</a>,
+                        </span>
+                        <span class="author-block">
+                          <a target="_blank" href="https://faculty.cc.gatech.edu/~danfei/">Danfei Xu</a>
+                        </span>
+
+                    </div> -->
+          <!-- <div class="is-size-5 publication-authors">
+            <span class="author-block">Georgia Institute of Technology <br> 
+              <sup>*</sup>Equal Contribution
+            </span>
+          </div> -->
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a target="_blank" href="assets/Precision Angle Seeking in Robots.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+            <!-- Arxiv Link. -->
+            <!-- <span class="link-block">
+              <a target="_blank" href="#"
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="fas fa-file"></i>
+                </span>
+                <span>ArXiv</span>
+              </a>
+            </span> -->
+
+            <!-- Video Link. -->
+            <span class="link-block">
+              <a target="_blank" href="https://www.youtube.com/@realworldRL"
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="fab fa-youtube"></i>
+                </span>
+                <span>Video</span>
+              </a>
+            </span>
+
+            <!-- Code Link. -->
+            <span class="link-block">
+              <a target="_blank" href="https://github.com/RoboAngleSeeker/RoboAngleSeeker"
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+                </a>
+            </span>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+            <br>
+            <br>
+            <p>
+              <img alt="task1" src="./assets/gifs/task1.gif" width="16%">
+              <img alt="task2" src="./assets/gifs/task2.gif" width="16%">
+              <img alt="task3" src="./assets/gifs/task3.gif" width="16%">
+              <img alt="task4" src="./assets/gifs/task4.gif" width="16%">
+              <img alt="task5" src="./assets/gifs/task5.gif" width="16%">
+              <img alt="task6" src="./assets/gifs/task6.gif" width="16%">
+            </p>
+            <br>
+            <br>
+          </div>
+        </div>
+  
+      </div>
+    </div> -->
+</section>
+
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="subtitle has-text-centered">
+      </br>
+      TL;DR: We introduce Generative Skill Chaining, a probabilistic framework that learns skill-centric diffusion models and composes their learned distributions to generate long-horizon plans for unseen task skeletons during inference.
+      </h2>
+    </div>
+    <br>
+    <br>
+    <div class="columns is-vcentered  is-centered">
+      <video id="teaser" autoplay muted loop height="60%" width="50%">
+        <source src="assets/videos/Intro_Video_GSC.mp4" type="video/mp4">
+      </video>
+      </br>
+    </div>
+  </div>
+</section> -->
+
+<section class="hero is-light">
+  <div class="hero-body">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p style="font-size: 125%">
+            This paper explores the deployment and challenges of <b>Reinforcement Learning (RL)</b> and <b>Deep Reinforcement Learning (DRL)</b> for precision angle seeking in robotic control across both simulated and physical environments. 
+            We introduce the <b>Angular Positioning Seeker (APS) environment</b>, leveraging Raspberry Pi 4B+ platforms to rigorously evaluate RL algorithms in scenarios that closely mimic real-world conditions. 
+            This benchmark highlights the <b>subtleties distinguishing RL implementations</b> in physical realms from simulated proxies, fostering advancements and more nuanced testing protocols within the domain of <b>robotic intelligence</b>. 
+          </p>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Method</h2>
+        <div class="content has-text-justified">
+          <p style="font-size: 125%">
+            In the methodology, we developed the <b>Angular Positioning Seeker (APS) environment</b> using OpenAI’s Gym tailored for angular positioning tasks and implemented the step function logic prioritizing angle-seeking behavior. 
+            We utilized <b>Raspberry Pi 4B+</b> and <b>STM32F103ZET6 microcontrollers</b> to construct a physical apparatus, ensuring robust evaluation of RL algorithms. The <b>DQN</b> algorithm and its variants, including Double DQN and Dueling DQN, were applied in both simulated and physical settings. 
+            The system's performance was measured using reward functions designed to minimize deviation from target angles, with detailed pseudocode provided for reproducibility.
+          </p>
+        </div>
+
+        <div style="display: flex; justify-content: center;">
+          <div style="flex: 1; padding: 10px;">
+              <img src="assets/images/circuit diagram with Pi4B+_note.jpg" alt="Circuit Diagram with Pi4B+" style="width: 100%; height: auto;"/>
+          </div>
+          <div style="flex: 1; padding: 10px;">
+              <img src="assets/images/Physical Connectivity Diagramnew.png" alt="Physical Connectivity Diagram" style="width: 100%; height: auto;"/>
+          </div>
+      </div>
+      
+
+        <!-- <img src="assets/images/circuit diagram with Pi4B+_note.jpg" class="interpolation-image"
+              alt="" style="display: block; margin-left: auto; margin-right: auto" width="400"/>
+        <img src="assets/images/Physical Connectivity Diagramnew.png" class="interpolation-image"
+              alt="" style="display: block; margin-left: auto; margin-right: auto" width="800"/> -->
+        </div>
+        <!-- <div class="content has-text-justified">
+          <p style="font-size: 125%">
+            Once the skill-level distributions are captured, sampling a valid skill chain boils down to, for each skill in a plan, 
+            conditionally generating skill parameters and post-condition states that satisfy the pre-condition of the next skill, 
+            constrained by the starting state and the final goal. 
+            The critical technical challenge is to ensure that the sequence of skill parameters is achievable from 
+            the initial state <b>(forward flow)</b> to satisfy the long-horizon goal <b>(backward flow)</b> and account for additional constraints.
+            We leverage the continuity impose by overlapping states between skills to ensure that such states ensure <b>skill affordability</b> 
+            for the subsequent skill and <b>reachability (or feasibility of transition)</b> from the state before.
+            This phenomenon is applied while sampling parallelly from all skill-centric factored distributions to solve task-level planning as shown below.
+          </p>
+        </div> -->
+
+        
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">How does compositionality works?</h2>
+
+        <img src="assets/images/comparison_of_returns_dqn_types_real_vs_simu.png" class="interpolation-image"
+              alt="" style="display: block; margin-left: auto; margin-right: auto" width="600"/>
+
+        <div class="content has-text-justified">
+          <p style="font-size: 125%">
+            Differential Performance of Reinforcement Learning Algorithms in Real and Simulated Environments.
+			(1) DQN showcases a convergence around a reward of 200 in real environments, despite wider fluctuations, and a transient drop to -700 in simulations at episode 65.
+			(2) Double DQN achieves a stable learning curve in simulations, while real-world performance demonstrates higher reward peaks followed by larger oscillations.
+			(3) Dueling DQN rapidly attains high convergence in simulations, with real-world trials displaying more pronounced and frequent reward fluctuations.
+          </p>
+        </div>
+
+        <img src="assets/images/comparison_of_max_qvalue_dqn_types_real_vs_simu.png" class="interpolation-image"
+              alt="" style="display: block; margin-left: auto; margin-right: auto" width="600"/>
+              <div class="content has-text-justified">
+                <p style="font-size: 125%">
+                  Trajectories of Q-value Convergence Across Environments for Reinforcement Learning Algorithms.
+			(a) \& (d) DQN shows swift convergence in simulations with Q-value oscillations up to 150, whereas real-world convergence is gradual with values settling around -30, demonstrating adaptability.
+			(b) \& (e) Double DQN offers reduced simulation oscillations with spikes decreasing to 60, but underperforms in real settings with Q-values converging around -50, indicating less predictability.
+			(c) \& (f) Dueling DQN maintains the lowest variability in simulations with spikes near 20 yet converges around -50 in real-world settings, paralleling Double DQN and revealing room for improvement in adaptability.
+                </p>
+              </div>
+              <img src="assets/images/Evolving Strategy Comparisons in Computational Models.png" class="interpolation-image"
+              alt="" style="display: block; margin-left: auto; margin-right: auto" width="1000"/>
+
+              <div class="content has-text-justified">
+                <p style="font-size: 125%">
+                  Histogram Analysis of Action Space Exploration in Reinforcement Learning. The figure demonstrates the algorithmic exploration process of DQN, Double DQN, and Dueling DQN, validated by a fitting of normal distributions and quantified by areas outside the expected curves, reflecting each algorithm's approach to exploring the action space.
+                </p>
+              </div>
+              <!-- <img src="assets/images/gamma_effect.jpg" class="interpolation-image"
+              alt="" style="display: block; margin-left: auto; margin-right: auto" width="1200"/> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="container is-max-desktop">
+      <!-- Generalization Videos -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Experiments</h2>
+        </div>
+      </div>
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+            <!-- <h2 class="title is-3"><span
+              class="dvima">Experiments</span></h2>
+            <br> -->
+            <h3 class="title is-4"><span
+              class="dvima">Evaluation on open-loop and closed-loop tasks
+            </span></h3>
+            <br>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="columns is-centered">
+        <div class="item">
+          <div style="padding: 5%;">
+            <div class="content has-text-justified">
+              <p style="font-size: 125%;">
+                <b>Task 1</b>: The goal is to place all the blocks on the rack without any collision. One block is already on rack.
+              </p>
+            </div>
+            <video poster="" id="" autoplay controls muted loop height="100%">
+              <source src="assets/videos/Constrained_Packing_Task1.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="item">
+          <div style="padding: 5%;">
+            <div class="content has-text-justified">
+              <p style="font-size: 125%;">
+                <b>Task 2</b>: The goal is to place all the blocks on the rack without any collision. The rack is empty.
+              </p>
+            </div>
+            <video poster="" id="" autoplay controls muted loop height="100%">
+              <source src="assets/videos/Constrained_Packing_Task3.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div> -->
+      <div class="columns is-centered">
+        <div class="item">
+          <div style="padding: 5%;">
+            <div class="content has-text-justified">
+              <p style="font-size: 125%;">
+                <b>Task 1</b>: Process of balance. The top half showcases the actual pendulum setup. The bottom half of the video displays the reward curve.
+              </p>
+            </div>
+            <iframe width="100%" height="400" src="https://www.youtube.com/embed/eUFUPuXiLfs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+        <!-- <div class="item">
+          <div style="padding: 5%;">
+            <div class="content has-text-justified">
+              <p style="font-size: 125%;">
+                <b>Task 4</b>: The goal is to place the red block below the rack. Red block is out of workspace so it has to be pulled into the workspace first. 
+              </p>
+            </div>
+            <video poster="" id="" autoplay controls muted loop height="100%">
+              <source src="https://www.youtube.com/embed/LGF2Fo9rasg"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div> -->
+        <div class="item">
+          <div style="padding: 5%;">
+            <div class="content has-text-justified">
+              <p style="font-size: 125%;">
+                <b>Task 2</b>: Utilize the compact yet powerful Raspberry Pi to train an APS to balance itself across a variety of angles.
+              </p>
+            </div>
+            <iframe width="100%" height="400" src="https://www.youtube.com/embed/LGF2Fo9rasg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+        
+      </div>
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+            <!-- <h2 class="title is-3"><span
+              class="dvima">Experiments</span></h2>
+            <br> -->
+            <h3 class="title is-4"><span
+              class="dvima">State Visitation Visualization
+            </span></h3>
+            <br>
+            <div class="content has-text-justified">
+              <p style="font-size: 125%;">
+                The heatmaps juxtapose the action convergence profiles of DQN and Double DQN, visually depicting their respective policies' precision and stability in maintaining the APS's upright state.
+              </p>
+            </div>
+            <img src="assets/images/DQN_vs_Double_DQN_State_Visit_Heatmaps.png" class="interpolation-image"
+              alt="" style="display: block; margin-left: auto; margin-right: auto" width="600"/>
+            <!-- <div class="columns is-vcentered  is-centered">
+              <video id="teaser" autoplay muted loop height="80%" width="60%">
+                <source src="assets/videos/Response_to_perturbations.mp4" type="video/mp4">
+              </video>
+              </br>
+            </div> -->
+            <br>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--Experiments-->
+<!-- <section class="section is-dark">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div>
+        <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-centered">
+            <div class="column">
+              <h4 class="title is-4"><span
+                class="dvima">
+              </span></h4>
+              <iframe width="900" height="600" src="https://www.youtube-nocookie.com/embed/#" title="Generative Skill Chaining: Long-Horizon Skill Planning with Diffusion Models" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+              </iframe>
+              <br>
+              <br>
+            </div>
+          </div>               
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container is-max-widescreen">
+      <!-- Generalization Videos -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Contribution</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--Contribution-->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+          <div class="content has-text-justified">
+          <p style="font-size: 125%">
+            The primary contributions of this work encompass:
+            <ul style="font-size: 125%">
+              <li><b>APS Environment Development.</b> Created a specialized environment, Angular Positioning Seeker (APS), based on OpenAI Gym for angular positioning tasks, addressing key practical challenges.</li>
+              <li><b>Simulation-to-Reality Gap Analysis.</b> Systematically analyzed differences in RL algorithm performance between simulated and physical environments, highlighting real-world factors like hardware noise and dynamic changes.</li>
+              <li><b>Physical Experiment Platform.</b> Built a physical experimental platform with Raspberry Pi 4B+ and STM32F103ZET6 microcontrollers for validating RL algorithms in real-world conditions, serving as a practical benchmark.</li>
+              <li><b>Extensive Algorithm Implementation.</b> Implemented and validated a range of RL and control algorithms on our physical setup, including REINFORCE, Actor Critic, TRPO, PPO, DDPG, SAC, Behavior Clone, GAIL, PETS, and MBPO. These implementations are available on our GitHub repository, demonstrating the platform's versatility.</li>
+              <li><b>Detailed Performance Evaluation.</b> Conducted exhaustive evaluations of multiple algorithms in the APS environment, revealing their strengths and weaknesses in terms of learning efficiency, convergence speed, and stability.</li>
+              <li><b>Open Source Resources.</b> Provided all experimental source codes and documentation to ensure reproducibility and community sharing, fostering further research and application of RL algorithms in real-world scenarios.</li>
+          </ul>
+        </p>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-widescreen content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{
+    mishra2023generative,
+    title={Generative Skill Chaining: Long-Horizon Skill Planning with Diffusion Models},
+    author={Utkarsh Aashu Mishra and Shangjie Xue and Yongxin Chen and Danfei Xu},
+    booktitle={7th Annual Conference on Robot Learning},
+    year={2023},
+    url={https://openreview.net/forum?id=HtJE9ly5dT}
+    }</code></pre>
+  </div>
+</section> -->
+
+
+</body>
+</html>
